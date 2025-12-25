@@ -56,7 +56,9 @@ async function applyAuthCookie(response: NextResponse, claims: TokenClaims) {
     name: AUTH_COOKIE_NAME,
     value: token,
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    // Allow overriding secure flag via env var for testing on HTTP servers.
+    // In production this will default to true when NODE_ENV=production.
+    secure: process.env.JWT_COOKIE_SECURE === 'true' ? true : process.env.NODE_ENV === 'production',
     sameSite: 'lax',
     path: '/',
     maxAge: getCookieMaxAge(),
