@@ -13,12 +13,12 @@ export default function Home() {
       <StudentHeader rightSlot={authLinks} />
       <main className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-purple-100 flex flex-col items-center justify-center px-4 pt-24">
         <section className="max-w-2xl w-full text-center py-12">
-          <h1 className="text-5xl font-extrabold text-blue-700 mb-4 drop-shadow-lg">Level Up Your Career!</h1>
+          <h1 className="text-5xl font-extrabold text-[var(--primary)] mb-4 drop-shadow-lg">Level Up Your Career!</h1>
           <p className="text-lg text-gray-700 mb-8">
-            Platform LMS modern untuk pengembangan <span className="font-semibold text-purple-600">soft skill</span> dan karir profesional. Dapatkan materi, mentoring, dan tracking progress belajar secara interaktif.
+            Platform LMS modern untuk pengembangan <span className="font-semibold text-[var(--primary)]">soft skill</span> dan karir profesional. Dapatkan materi, mentoring, dan tracking progress belajar secara interaktif.
           </p>
-          <div className="flex flex-col gap-4 items-center">
-            <Link href="/register" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all text-xl">
+            <div className="flex flex-col gap-4 items-center">
+            <Link href="/register" className="btn-primary text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all text-xl">
               Daftar Sekarang
             </Link>
             <Link href="/login" className="text-blue-600 hover:underline text-base font-medium">

@@ -89,8 +89,8 @@ export default function Login() {
       <section className="max-w-md w-full bg-white/90 rounded-xl shadow-lg p-8">
         <div className="flex flex-col items-center mb-6">
           <Image
-            src="/ilmi-logo.png"
-            alt="ILMI Logo"
+            src="/logo.svg"
+            alt="Integrated Learning Hub Logo"
             width={144}
             height={144}
             className="object-contain"
@@ -118,7 +118,7 @@ export default function Login() {
 
           <Captcha onChange={setCaptchaValue} />
 
-          <button type="submit" disabled={loading} className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-2 rounded-lg shadow-md transition-all mt-2 flex items-center justify-center gap-2">
+          <button type="submit" disabled={loading} className="btn-primary disabled:opacity-60 text-white font-bold py-2 rounded-lg shadow-md transition-all mt-2 flex items-center justify-center gap-2">
             {loading ? (
               <>
                 <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

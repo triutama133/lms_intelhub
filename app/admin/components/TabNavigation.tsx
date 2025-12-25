@@ -10,17 +10,17 @@ export default function TabNavigation({ activeTab, onTabChange }: TabNavigationP
         <button
           type="button"
           onClick={() => onTabChange('users')}
-          className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-150 ${activeTab === 'users' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-600 hover:text-blue-600'}`}
+          className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-150 ${activeTab === 'users' ? 'bg-[var(--primary)] text-white shadow-md' : 'text-slate-600 hover:text-[var(--primary)]'}`}
         >Manajemen User</button>
         <button
           type="button"
           onClick={() => onTabChange('courses')}
-          className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-150 ${activeTab === 'courses' ? 'bg-purple-600 text-white shadow-md' : 'text-slate-600 hover:text-purple-600'}`}
+          className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-150 ${activeTab === 'courses' ? 'bg-[var(--primary)] text-white shadow-md' : 'text-slate-600 hover:text-[var(--primary)]'}`}
         >Manajemen Course</button>
         <button
           type="button"
           onClick={() => onTabChange('categories')}
-          className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-150 ${activeTab === 'categories' ? 'bg-emerald-600 text-white shadow-md' : 'text-slate-600 hover:text-emerald-600'}`}
+          className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-150 ${activeTab === 'categories' ? 'bg-[var(--primary)] text-white shadow-md' : 'text-slate-600 hover:text-[var(--primary)]'}`}
         >Kategori</button>
       </div>
       <div className="rounded-2xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-xs text-slate-600 shadow-sm md:max-w-sm">

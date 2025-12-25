@@ -15,19 +15,19 @@ const geistMono = {
 };
 
 export const metadata: Metadata = {
-  title: "ILMI LMS",
-  description: "Platform pembelajaran ILMI",
+  title: "Integrated Learning Hub",
+  description: "Integrated Learning Hub — Platform pembelajaran terintegrasi",
   manifest: "/manifest.json",
   icons: {
     icon: "/favicon.ico",
-    apple: "/ilmi-logo.png",
+    apple: "/logo.svg",
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#3b82f6",
+  themeColor: "#0ea5a4",
 };
 
 export default function RootLayout({

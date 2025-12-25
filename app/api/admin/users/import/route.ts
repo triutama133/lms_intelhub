@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
 import { authErrorResponse, ensureRole, refreshAuthCookie, requireAuth } from '../../../../utils/auth';
 import { dbService } from '../../../../../utils/database';
+import { DEFAULT_TENANT_ID } from '../../../../../lib/branding';
 import ExcelJS from 'exceljs';
 
 export async function POST(req: Request) {
@@ -178,6 +179,7 @@ export async function POST(req: Request) {
         role: u.role,
         provinsi: u.provinsi || '',
         password: hashed,
+        tenantId: DEFAULT_TENANT_ID,
       };
 
       try {
@@ -185,6 +187,7 @@ export async function POST(req: Request) {
           data: user
         });
       } catch (error) {
+        console.error('Import user error:', error);
         const errorMsg = error instanceof Error ? error.message : 'Database error';
         failed.push({ idx: idx+1, errors: [errorMsg], user: u });
         continue;

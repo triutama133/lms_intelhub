@@ -1,7 +1,7 @@
 // Service Worker for PWA functionality
-// const CACHE_NAME = 'ilmi-lms-v1'; // Not used
-const STATIC_CACHE = 'ilmi-lms-static-v1';
-const DYNAMIC_CACHE = 'ilmi-lms-dynamic-v1';
+// Service worker cache names updated for Integrated Learning Hub
+const STATIC_CACHE = 'integrated-learning-hub-static-v1';
+const DYNAMIC_CACHE = 'integrated-learning-hub-dynamic-v1';
 
 // Resources to cache immediately
 const STATIC_ASSETS = [
@@ -11,7 +11,7 @@ const STATIC_ASSETS = [
   '/lms/student/dashboard',
   '/lms/teacher/dashboard',
   '/manifest.json',
-  '/ilmi-logo.png',
+  '/logo.svg',
   '/favicon.ico'
 ];
 
@@ -136,8 +136,8 @@ self.addEventListener('push', (event) => {
     const data = event.data.json();
     const options = {
       body: data.body,
-      icon: '/ilmi-logo.png',
-      badge: '/ilmi-logo.png',
+      icon: '/logo.svg',
+      badge: '/logo.svg',
       vibrate: [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),

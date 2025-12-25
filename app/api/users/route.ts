@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
 import { authErrorResponse, ensureRole, refreshAuthCookie, requireAuth } from '../../utils/auth';
 import { dbService } from '../../../utils/database';
+import { DEFAULT_TENANT_ID } from '../../../lib/branding';
 
 interface UserWithCategories {
   id: string;
@@ -229,6 +230,7 @@ export async function POST(request: Request) {
       role,
       provinsi: provinsi || '',
       password: hashed,
+      tenantId: DEFAULT_TENANT_ID,
       // categories: [], // Remove to use default
     };
 

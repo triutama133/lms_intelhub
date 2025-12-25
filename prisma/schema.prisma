@@ -11,11 +11,34 @@ datasource db {
   directUrl = env("DATABASE_URL")
 }
 
+model Tenant {
+  id          String   @id
+  name        String   @unique
+  title       String
+  bucket      String
+  theme       String?  @default("blue")
+  description String?
+  active      Boolean? @default(true)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
+
+  // Relations
+  users     User[]
+
+  @@map("tenants")
+}
+
 model User {
   id        String   @id
   name      String
   email     String   @unique
+  // Tenant identifier (maps to DB column `tenant_id`)
+  // Kept nullable here — application layer will set tenantId explicitly.
+  tenantId  String?  @map("tenant_id")
   role      String
+  
+  // Relation to Tenant
+  tenant    Tenant?  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   provinsi  String?
   password  String
   categories String[]

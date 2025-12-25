@@ -35,13 +35,13 @@ export default function CoursesPage() {
   return (
     <>
       <StudentHeader />
-      <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-purple-100 px-4 pb-16">
+      <main className="min-h-screen bg-gradient-to-b from-teal-50 via-white to-teal-100 px-4 pb-16">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 pt-28">
           <section className="overflow-hidden rounded-3xl border border-white/70 bg-white/90 shadow-xl">
             <div className="grid gap-6 p-8 md:grid-cols-[1.8fr,1fr]">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-blue-400">Eksplorasi Pengetahuan</p>
-                <h1 className="mt-3 text-3xl font-bold text-blue-900 md:text-4xl">Bangun skill baru bersama mentor terbaik.</h1>
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--primary)]">Eksplorasi Pengetahuan</p>
+                <h1 className="mt-3 text-3xl font-bold text-[var(--primary)] md:text-4xl">Bangun skill baru bersama mentor terbaik.</h1>
                 <p className="mt-3 max-w-2xl text-sm text-slate-600 md:text-base">
                   Kuasai komunikasi, leadership, manajemen karir, dan soft skill lain melalui kursus interaktif yang dirancang oleh praktisi.
                 </p>
@@ -51,11 +51,11 @@ export default function CoursesPage() {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Cari course (mis. communication, leadership)"
-                    className="w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 md:w-80"
+                    className="w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300 md:w-80"
                     aria-label="Cari course"
                   />
                   <div className="flex items-center gap-2 text-xs text-slate-500">
-                    <span className="inline-flex h-2 w-2 rounded-full bg-blue-500" />
+                    <span className="inline-flex h-2 w-2 rounded-full bg-[var(--primary)]" />
                     {courses.length} course siap diikuti
                   </div>
                 </div>
@@ -101,15 +101,15 @@ function CoursesGrid({ courses, search }: CoursesGridProps) {
     );
   }
 
-  return (
+    return (
     <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {filtered.map((course) => (
         <div key={course.id} className="flex flex-col rounded-3xl border border-slate-100 bg-white/95 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-          <h2 className="text-xl font-bold text-blue-900">{course.title}</h2>
+          <h2 className="text-xl font-bold text-[var(--primary)]">{course.title}</h2>
           <p className="mt-2 flex-1 text-sm text-slate-600">{course.description}</p>
           <Link
             href={`/student/courses/${course.id}`}
-            className="mt-6 inline-flex items-center justify-between rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow transition hover:from-blue-700 hover:to-purple-700"
+            className="mt-6 inline-flex items-center justify-between rounded-xl btn-primary px-4 py-2 text-sm font-semibold text-white shadow transition hover:opacity-95"
           >
             Lihat Detail
             <span aria-hidden>→</span>

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { dbService } from '../../../utils/database';
+import { DEFAULT_TENANT_ID } from '../../../lib/branding';
 import bcrypt from 'bcryptjs';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
 import { v4 as uuidv4 } from 'uuid';
@@ -76,7 +77,7 @@ export async function POST(request: Request) {
     // Sanitize provinsi input
     const sanitizedProvinsi = provinsi ? provinsi.trim().replace(/[<>"']/g, '') : '';
 
-    // Insert user to users table, set default role 'student'
+    // Insert user to users table, set default role 'student' and tenant
     const user = await dbService.user.create({
       data: { 
         id: uuidv4(), 
@@ -84,7 +85,8 @@ export async function POST(request: Request) {
         email: normalizedEmail, 
         password: hashedPassword, 
         role: 'student', 
-        provinsi: sanitizedProvinsi 
+        provinsi: sanitizedProvinsi,
+        tenantId: DEFAULT_TENANT_ID,
       }
     }) as { id: string; name: string; email: string; role: string; provinsi: string | null };
 

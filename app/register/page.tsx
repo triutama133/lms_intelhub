@@ -190,7 +190,7 @@ export default function Register() {
 
           <Captcha onChange={setCaptchaValue} />
 
-          <button type="submit" disabled={loading} className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-2 rounded-lg shadow-md transition-all mt-2 flex items-center justify-center gap-2">
+          <button type="submit" disabled={loading} className="btn-primary disabled:opacity-60 text-white font-bold py-2 rounded-lg shadow-md transition-all mt-2 flex items-center justify-center gap-2">
             {loading ? (
               <>
                 <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

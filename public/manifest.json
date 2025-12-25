@@ -1,7 +1,7 @@
 {
-  "name": "ILMI Learning Management System",
-  "short_name": "ILMI LMS",
-  "description": "Comprehensive Learning Management System for ILMI",
+  "name": "Integrated Learning Hub",
+  "short_name": "Integrated Hub",
+  "description": "Platform pembelajaran terintegrasi untuk pengembangan kompetensi",
   "start_url": "/lms/login",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -10,13 +10,13 @@
   "scope": "/",
   "icons": [
     {
-      "src": "/ilmi-logo.png",
+      "src": "/logo.svg",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/ilmi-logo.png",
+      "src": "/logo.svg",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

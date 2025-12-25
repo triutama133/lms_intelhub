@@ -68,9 +68,9 @@ export default function StudentHeader({ extraNavItems, rightSlot }: StudentHeade
   };
 
   const navLinks = [
-    { href: '/student/dashboard', label: 'Home' },
-    { href: '/student/courses', label: 'Courses' },
-    { href: '/student/progress', label: 'Tracking Progress' },
+    { href: '/student/dashboard', label: 'Beranda' },
+    { href: '/student/courses', label: 'Kursus' },
+    { href: '/student/progress', label: 'Progress' },
   ];
 
   const extraItemsArray = extraNavItems ? Children.toArray(extraNavItems) : [];
@@ -79,8 +79,8 @@ export default function StudentHeader({ extraNavItems, rightSlot }: StudentHeade
     <header className="fixed top-0 left-0 z-10 w-full bg-white/90 shadow">
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-3 px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3 sm:gap-6">
-          <LogoImage src="/ilmi-logo.png" alt="ILMI Logo" size="md" />
-          <span className="text-xl font-bold text-blue-700">LMS</span>
+          <LogoImage src="/logo.svg" alt="Integrated Learning Hub Logo" size="md" />
+          <span className="text-xl font-bold text-[var(--primary)]">Integrated Learning Hub</span>
         </div>
 
         <div className="hidden w-full items-center justify-between gap-4 md:flex md:w-auto">
@@ -89,7 +89,7 @@ export default function StudentHeader({ extraNavItems, rightSlot }: StudentHeade
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition ${pathname?.startsWith(link.href) ? 'text-blue-800 underline' : 'text-blue-700 hover:underline'}`}
+                className={`text-sm font-medium transition ${pathname?.startsWith(link.href) ? 'text-[var(--primary)] underline' : 'text-[var(--primary)]/90 hover:underline'}`}
               >
                 {link.label}
               </Link>
@@ -111,7 +111,7 @@ export default function StudentHeader({ extraNavItems, rightSlot }: StudentHeade
           <button
             type="button"
             onClick={() => setShowMobileNav((prev) => !prev)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-white text-blue-700 shadow-sm md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--primary)]/20 bg-white text-[var(--primary)] shadow-sm md:hidden"
             aria-label="Toggle navigation"
           >
             <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -124,8 +124,8 @@ export default function StudentHeader({ extraNavItems, rightSlot }: StudentHeade
               onClick={() => setShowMenu((prev) => !prev)}
               aria-label="User menu"
             >
-              <span className="inline-block h-10 w-10 overflow-hidden rounded-full border-2 border-blue-500 bg-gray-200">
-                <svg className="h-full w-full text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+              <span className="inline-block h-10 w-10 overflow-hidden rounded-full border-2 border-[var(--primary)] bg-gray-200">
+                <svg className="h-full w-full text-[var(--primary)]/70" fill="currentColor" viewBox="0 0 24 24">
                   <circle cx="12" cy="8" r="4" />
                   <path d="M4 20c0-4 8-4 8-4s8 0 8 4" />
                 </svg>
@@ -141,7 +141,7 @@ export default function StudentHeader({ extraNavItems, rightSlot }: StudentHeade
                     <span className="text-lg font-bold text-gray-800">{user?.name ?? 'Student'}</span>
                   </div>
                   {user?.role && (
-                    <span className="rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-700">Role: {user.role}</span>
+                    <span className="rounded-full bg-[var(--primary)]/10 px-2 py-1 text-xs text-[var(--primary)]">Role: {user.role}</span>
                   )}
                 </div>
                 <ul className="py-2">
@@ -153,7 +153,7 @@ export default function StudentHeader({ extraNavItems, rightSlot }: StudentHeade
                       <span>🚪</span>Logout
                       {loggingOut && (
                         <span className="absolute right-4 flex items-center">
-                          <svg className="animate-spin h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <svg className="animate-spin h-5 w-5 text-[var(--primary)]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
                           </svg>
@@ -169,13 +169,13 @@ export default function StudentHeader({ extraNavItems, rightSlot }: StudentHeade
 
         {showMobileNav && (
           <div className="mt-3 w-full rounded-2xl border border-slate-100 bg-white/95 p-4 shadow md:hidden">
-            <nav className="flex flex-col gap-2">
+                <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={`mobile-${link.href}`}
                   href={link.href}
                   onClick={() => setShowMobileNav(false)}
-                  className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${pathname?.startsWith(link.href) ? 'bg-blue-600 text-white shadow' : 'text-blue-700 hover:bg-blue-50'}`}
+                  className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${pathname?.startsWith(link.href) ? 'bg-[var(--primary)] text-white shadow' : 'text-[var(--primary)]/90 hover:bg-[var(--primary)]/10'}`}
                 >
                   {link.label}
                 </Link>

@@ -7,7 +7,7 @@ export default function HomePage() {
       <Link href="/login" className="text-blue-600 hover:text-blue-800 font-medium transition-colors">
         Masuk
       </Link>
-      <Link href="/register" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+      <Link href="/register" className="btn-primary text-white font-semibold py-2 px-4 rounded-lg transition-colors">
         Daftar
       </Link>
     </div>
@@ -21,18 +21,18 @@ export default function HomePage() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
               <Image
-                src="/ilmi-logo.png"
-                alt="ILMI LMS Logo"
+                src="/logo.svg"
+                alt="Integrated Learning Hub Logo"
                 width={32}
                 height={32}
                 className="rounded"
               />
-              <span className="text-xl font-bold text-gray-900">ILMI LMS</span>
+              <span className="text-xl font-bold text-[var(--primary)]">Integrated Learning Hub</span>
             </div>
             <nav className="hidden md:flex items-center gap-6">
-              <a href="#about" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Tentang</a>
-              <a href="#features" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Fitur</a>
-              <Link href="/courses" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">Kursus</Link>
+              <a href="#about" className="text-gray-600 hover:text-[var(--primary)] font-medium transition-colors">Tentang</a>
+              <a href="#features" className="text-gray-600 hover:text-[var(--primary)] font-medium transition-colors">Fitur</a>
+              <Link href="/courses" className="text-gray-600 hover:text-[var(--primary)] font-medium transition-colors">Kursus</Link>
             </nav>
             {authLinks}
           </div>
@@ -45,24 +45,24 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <div className="flex justify-center mb-8">
-                <Image
-                  src="/ilmi-logo.png"
-                  alt="ILMI LMS"
-                  width={120}
-                  height={120}
-                  className="rounded-2xl shadow-lg"
-                />
-              </div>
+                    <Image
+                      src="/logo.svg"
+                      alt="Integrated Learning Hub"
+                      width={120}
+                      height={120}
+                      className="rounded-2xl shadow-lg"
+                    />
+                </div>
               <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
-                Learning Management System
-                <span className="block text-blue-600">ILMI</span>
+                Integrated Learning Hub
+                <span className="block text-[var(--primary)]">Platform Pembelajaran Terintegrasi</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Platform pembelajaran modern untuk pengembangan kompetensi profesional.
                 Tingkatkan skill Anda dengan materi interaktif, tracking progress, dan sertifikasi yang diakui.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/register" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all text-lg transform hover:scale-105">
+                <Link href="/register" className="btn-primary text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all text-lg transform hover:scale-105">
                   Mulai Belajar Sekarang
                 </Link>
                 <Link href="/courses" className="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors">
@@ -103,9 +103,9 @@ export default function HomePage() {
         {/* About Section */}
         <section id="about" className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Tentang ILMI LMS</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Tentang Integrated Learning Hub</h2>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              ILMI Learning Management System adalah platform pembelajaran digital yang dirancang khusus untuk
+              Integrated Learning Hub adalah platform pembelajaran digital yang dirancang khusus untuk
               memfasilitasi pengembangan kompetensi profesional di era industri 4.0. Dengan teknologi terkini
               dan kurikulum yang relevan, kami membantu individu dan organisasi mencapai tujuan pembelajaran mereka.
             </p>
@@ -158,20 +158,20 @@ export default function HomePage() {
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="flex items-center gap-3 mb-4 md:mb-0">
                 <Image
-                  src="/ilmi-logo.png"
-                  alt="ILMI LMS"
+                  src="/logo.svg"
+                  alt="Integrated Learning Hub"
                   width={40}
                   height={40}
                   className="rounded"
                 />
                 <div>
-                  <div className="text-lg font-bold">ILMI LMS</div>
-                  <div className="text-sm text-gray-400">Learning Management System</div>
+                  <div className="text-lg font-bold">Integrated Learning Hub</div>
+                  <div className="text-sm text-gray-400">Platform Pembelajaran Terintegrasi</div>
                 </div>
               </div>
               <div className="text-center md:text-right">
                 <p className="text-gray-400 text-sm">
-                  &copy; 2025 ILMI LMS. Platform pembelajaran modern untuk era digital.
+                  &copy; 2025 Integrated Learning Hub. Platform pembelajaran terintegrasi untuk era digital.
                 </p>
                 <p className="text-gray-500 text-xs mt-1">
                   Visi: Membantu generasi muda siap berkarir di era digital

@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
 import { authErrorResponse, ensureRole, refreshAuthCookie, requireAuth } from '../../../utils/auth';
 import { dbService } from '../../../../utils/database';
+import { DEFAULT_TENANT_ID } from '../../../../lib/branding';
 
 export async function POST(req: Request) {
   let auth;
@@ -71,6 +72,7 @@ export async function POST(req: Request) {
         role: u.role,
         provinsi: u.provinsi || '',
         password: hashed,
+        tenantId: DEFAULT_TENANT_ID,
       };
       try {
         await dbService.user.create({

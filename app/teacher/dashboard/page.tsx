@@ -98,7 +98,7 @@ export default function TeacherDashboard() {
       <main className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 flex flex-col items-center px-4 pt-24">
         <section className="max-w-4xl w-full bg-white/90 rounded-xl shadow-lg p-8 mt-8">
         <h1 className="text-2xl font-bold text-purple-700 mb-6 text-center">
-          {user?.role === 'admin' ? 'Admin - Teacher Dashboard' : 'Teacher Dashboard'}
+          {user?.role === 'admin' ? 'Admin - Teacher Dashboard' : 'Dashboard Pengajar'}
         </h1>
 
         {user?.role === 'admin' && (

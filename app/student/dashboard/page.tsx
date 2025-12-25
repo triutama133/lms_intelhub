@@ -122,12 +122,12 @@ export default function StudentDashboard() {
   return (
     <>
       <StudentHeader extraNavItems={extraNavItems} />
-      <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-purple-100 px-4 pb-16">
+      <main className="min-h-screen bg-gradient-to-b from-teal-50 via-white to-teal-100 px-4 pb-16">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 pt-28">
-          <section className="rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 p-[1px] shadow-xl">
+          <section className="rounded-3xl bg-gradient-to-br from-teal-600 via-teal-500 to-teal-700 p-[1px] shadow-xl">
             <div className="rounded-[calc(1.5rem-1px)] bg-white/90 p-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-blue-400">Dashboard Learning</p>
-              <h2 className="mt-4 text-3xl font-bold text-blue-900 md:text-4xl">{greeting}</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--primary)]">Dashboard</p>
+              <h2 className="mt-4 text-3xl font-bold text-[var(--primary)] md:text-4xl">{greeting}</h2>
               <p className="mt-3 max-w-xl text-sm text-slate-600 md:text-base">
                 Tetap konsisten dengan melanjutkan materi terakhir atau eksplor course baru yang tersedia.
               </p>
@@ -136,10 +136,10 @@ export default function StudentDashboard() {
                   <Link
                     key={action.title}
                     href={action.href}
-                    className="group rounded-2xl border border-blue-100 bg-white/70 px-4 py-3 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                    className="group rounded-2xl border border-teal-100 bg-white/70 px-4 py-3 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                   >
                     <div className="text-xl">{action.icon}</div>
-                    <h3 className="mt-2 text-sm font-semibold text-blue-800">{action.title}</h3>
+                    <h3 className="mt-2 text-sm font-semibold text-[var(--primary)]">{action.title}</h3>
                     <p className="text-xs text-slate-500">{action.description}</p>
                   </Link>
                 ))}
@@ -150,7 +150,7 @@ export default function StudentDashboard() {
           <section className="rounded-3xl border border-white/70 bg-white/90 p-6 shadow-md">
             <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
-                <h3 className="text-lg font-semibold text-blue-800">Course yang Diikuti</h3>
+                <h3 className="text-lg font-semibold text-[var(--primary)]">Course yang Diikuti</h3>
                 <p className="text-sm text-slate-500">Lanjutkan course yang sudah kamu mulai atau eksplor materi lainnya.</p>
               </div>
               <div className="flex w-full flex-col gap-3 md:w-auto md:flex-row md:items-center">
@@ -159,33 +159,33 @@ export default function StudentDashboard() {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Cari course..."
-                  className="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 md:w-64"
+                  className="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-300 md:w-64"
                   aria-label="Cari course"
                 />
                 <Link
                   href="/student/courses"
-                  className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow transition hover:bg-blue-700"
+                  className="rounded-xl btn-primary px-4 py-2 text-sm font-semibold text-white shadow transition hover:opacity-95"
                 >
                   Lihat Semua Course
                 </Link>
               </div>
             </div>
             {filteredCourses.length === 0 ? (
-              <div className="rounded-2xl border border-dashed border-blue-200 bg-blue-50/60 p-8 text-center text-slate-500">
+              <div className="rounded-2xl border border-dashed border-teal-200 bg-teal-50/60 p-8 text-center text-slate-500">
                 Belum ada course yang cocok dengan pencarianmu. Coba kata kunci lain atau eksplor course baru.
               </div>
             ) : (
               <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {filteredCourses.map((course) => (
                   <div key={course.id} className="flex flex-col rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-blue-400">
-                      <span className="inline-flex h-2 w-2 rounded-full bg-blue-500" /> Course Aktif
+                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--primary)]">
+                      <span className="inline-flex h-2 w-2 rounded-full bg-[var(--primary)]" /> Course Aktif
                     </div>
-                    <h4 className="mt-3 text-lg font-bold text-blue-800">{course.title}</h4>
+                    <h4 className="mt-3 text-lg font-bold text-[var(--primary)]">{course.title}</h4>
                     <p className="mt-2 flex-1 text-sm text-slate-600">{course.description}</p>
                     <Link
                       href={`/student/courses/${course.id}`}
-                      className="mt-4 inline-flex items-center justify-between rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow transition hover:bg-blue-700"
+                      className="mt-4 inline-flex items-center justify-between rounded-xl btn-primary px-4 py-2 text-sm font-semibold text-white shadow transition hover:opacity-95"
                     >
                       Lanjutkan
                       <span aria-hidden>→</span>
