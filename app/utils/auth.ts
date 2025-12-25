@@ -23,15 +23,21 @@ export async function requireAuth(): Promise<RequireAuthResult> {
   const cookieStore = await cookies();
   const token = cookieStore.get(AUTH_COOKIE_NAME)?.value;
   if (!token) {
+    console.error('[auth] requireAuth: no token found in cookies');
     throw new Error('Unauthorized');
   }
 
-  const payload = await verifyAuthToken(token);
-  const exp = typeof payload.exp === 'number' ? payload.exp : null;
-  const now = Math.floor(Date.now() / 1000);
-  const shouldRefresh = !!exp && exp - now <= getRefreshThreshold();
+  try {
+    const payload = await verifyAuthToken(token);
+    const exp = typeof payload.exp === 'number' ? payload.exp : null;
+    const now = Math.floor(Date.now() / 1000);
+    const shouldRefresh = !!exp && exp - now <= getRefreshThreshold();
 
-  return { payload, shouldRefresh };
+    return { payload, shouldRefresh };
+  } catch (err) {
+    console.error('[auth] requireAuth: token verification failed', err instanceof Error ? err.message : err);
+    throw new Error('Unauthorized');
+  }
 }
 
 type TokenClaims = {
@@ -52,6 +58,9 @@ function resolveClaimsFromPayload(payload: AuthTokenPayload): TokenClaims {
 
 async function applyAuthCookie(response: NextResponse, claims: TokenClaims) {
   const token = await signAuthToken(claims);
+  try {
+    console.log('[auth] applyAuthCookie: setting cookie for', { sub: claims.sub, role: claims.role });
+  } catch (e) {}
   response.cookies.set({
     name: AUTH_COOKIE_NAME,
     value: token,

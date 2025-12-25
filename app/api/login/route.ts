@@ -53,12 +53,14 @@ export async function POST(request: Request) {
       user: { id: user.id, name: user.name, email: user.email, role: user.role },
     });
 
+    console.log('[auth] login: success for', { id: user.id, email: user.email, role: user.role });
     await setAuthCookie(response, {
       sub: user.id,
       role: user.role,
       email: user.email,
       name: user.name,
     });
+    console.log('[auth] login: cookie set for', { id: user.id });
 
     return response;
   } catch (error) {

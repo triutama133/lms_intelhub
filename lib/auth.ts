@@ -21,6 +21,7 @@ export async function signAuthToken(payload: {
   email?: string;
   name?: string;
 }, expiresIn?: string): Promise<string> {
+  console.log('[auth] signAuthToken:', { sub: payload.sub, role: payload.role });
   const token = await new SignJWT({
     role: payload.role,
     email: payload.email,
@@ -35,9 +36,15 @@ export async function signAuthToken(payload: {
 }
 
 export async function verifyAuthToken(token: string): Promise<AuthTokenPayload> {
+  try {
+    console.log('[auth] verifyAuthToken: token length', token?.length ?? 0);
+  } catch (e) {
+    // ignore
+  }
   const { payload } = await jwtVerify(token, getSecretKey());
   if (!payload.sub || !payload.role) {
     throw new Error('Token payload incomplete');
   }
+  console.log('[auth] verifyAuthToken: success', { sub: payload.sub, role: payload.role });
   return payload as AuthTokenPayload;
 }
