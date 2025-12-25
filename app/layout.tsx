@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: "Integrated Learning Hub — Platform pembelajaran terintegrasi",
   manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.svg",
     apple: "/logo.svg",
   },
 };
