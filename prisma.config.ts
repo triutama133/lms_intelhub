@@ -1,13 +1,17 @@
-import { defineConfig, env } from "prisma/config";
-import "dotenv/config";
+// Minimal Prisma config compatible with modern Prisma CLI and without
+// requiring 'prisma/config' or 'dotenv' during `npm install`.
+// The Prisma CLI will still read `prisma/schema.prisma` by default.
 
-export default defineConfig({
+const config = {
   schema: "prisma/schema.prisma",
   migrations: {
     path: "prisma/migrations",
   },
   engine: "classic",
   datasource: {
-    url: env("DATABASE_URL"),
+    // Use runtime env var directly; Prisma will resolve DATABASE_URL.
+    url: process.env.DATABASE_URL,
   },
-});
+};
+
+export default config;
